@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github每日精选 · 2026-03-28</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+            background: #f8fafc; color: #0f172a; padding: 36px 24px; line-height: 1.6; }
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    /* ── Header ── */
+    header { margin-bottom: 44px; padding-bottom: 24px; border-bottom: 1px solid #e2e8f0; }
+    header h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px;
+                 background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+                 -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+                 background-clip: text; }
+    header .meta { color: #94a3b8; font-size: 13px; margin-top: 6px;
+                    display: flex; align-items: center; gap: 6px; }
+    header .meta a { color: #6366f1; text-decoration: none; font-weight: 600; }
+    header .meta a:hover { text-decoration: underline; }
+    header .meta .sep { color: #d1d5db; }
+
+    /* ── Section headings ── */
+    section { margin-bottom: 52px; }
+    h2 { font-size: 17px; font-weight: 700; color: #0f172a;
+          margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+    h2::before { content: ""; display: inline-block; width: 4px; height: 20px;
+                  border-radius: 2px;
+                  background: linear-gradient(180deg, #6366f1, #8b5cf6); flex-shrink: 0; }
+    h2.weekly::before { background: linear-gradient(180deg, #f59e0b, #ef4444); }
+
+    /* ── Section digest ── */
+    .section-digest { font-size: 13px; color: #4b5563; line-height: 1.85;
+                       background: linear-gradient(135deg, #fefce8 0%, #faf5ff 100%);
+                       border: 1px solid #e9d5ff; border-radius: 12px;
+                       padding: 13px 18px; margin-bottom: 18px; }
+
+    /* ── Table ── */
+    table { width: 100%; border-collapse: separate; border-spacing: 0;
+             background: #fff; border-radius: 14px; overflow: hidden;
+             box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 6px 16px rgba(0,0,0,.04);
+             border: 1px solid #e8ecf0; font-size: 14px; }
+    th { text-align: left; padding: 11px 16px; color: #94a3b8; font-weight: 600;
+          font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+          background: #f8fafc; border-bottom: 1px solid #e8ecf0; }
+    td { padding: 13px 16px; border-bottom: 1px solid #f1f5f9; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f5f3ff; }
+    td a { color: #4f46e5; text-decoration: none; font-weight: 600; font-size: 14px; }
+    td a:hover { color: #7c3aed; text-decoration: underline; }
+    .desc { color: #94a3b8; font-size: 12px; margin-top: 4px; line-height: 1.5; }
+    .rank { color: #d1d5db; width: 36px; text-align: center;
+             font-weight: 800; font-size: 15px; }
+    .stars { color: #f59e0b; text-align: right; white-space: nowrap;
+              font-weight: 600; font-size: 13px; }
+    .today { color: #10b981; }
+
+    /* ── Language badge ── */
+    .badge { display: inline-block; padding: 2px 10px; border-radius: 20px;
+              font-size: 11px; color: #fff; font-weight: 600; white-space: nowrap; }
+
+    /* ── Hero card ── */
+    .hero-section { margin-bottom: 52px; }
+    .hero-card { background: linear-gradient(135deg, #eef2ff 0%, #faf5ff 100%);
+                  border: 1px solid #c7d2fe; border-radius: 16px; padding: 24px 28px; }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase;
+                     letter-spacing: .08em; color: #6366f1; margin-bottom: 12px; }
+    .hero-name-row { display: flex; align-items: center; gap: 10px;
+                      flex-wrap: wrap; margin-bottom: 8px; }
+    .hero-name { font-size: 22px; font-weight: 800; color: #4f46e5;
+                  text-decoration: none; letter-spacing: -0.3px; }
+    .hero-name:hover { color: #7c3aed; text-decoration: underline; }
+    .hero-meta { display: flex; align-items: center; gap: 12px;
+                  flex-wrap: wrap; font-size: 13px; margin-bottom: 20px; }
+    .hero-stars { color: #f59e0b; font-weight: 700; }
+    .hero-today { color: #10b981; font-weight: 600; }
+    .hero-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+    .hero-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .hero-item { background: rgba(255,255,255,.75); border-radius: 10px;
+                  padding: 14px 16px; }
+    .hero-item-label { font-size: 11px; font-weight: 700; color: #6366f1;
+                        text-transform: uppercase; letter-spacing: .05em;
+                        margin-bottom: 6px; }
+    .hero-item-body { font-size: 13px; color: #374151; line-height: 1.65; }
+
+    /* ── Weekly card grid ── */
+    .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card { background: #fff; border-radius: 14px; padding: 18px 20px;
+             box-shadow: 0 1px 4px rgba(0,0,0,.06), 0 6px 16px rgba(0,0,0,.04);
+             border: 1px solid #e8ecf0;
+             transition: box-shadow .2s ease, transform .2s ease; }
+    .card:hover { box-shadow: 0 4px 14px rgba(99,102,241,.12), 0 10px 28px rgba(0,0,0,.08);
+                   transform: translateY(-3px); }
+    .card-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+    .card-rank { font-size: 22px; font-weight: 900; color: #e2e8f0;
+                  min-width: 30px; line-height: 1.2; }
+    .card-name { color: #4f46e5; font-weight: 700; font-size: 14px;
+                  text-decoration: none; line-height: 1.4; word-break: break-all; }
+    .card-name:hover { color: #7c3aed; text-decoration: underline; }
+    .card-desc { color: #94a3b8; font-size: 12px; line-height: 1.55; margin: 6px 0 8px; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between;
+                    margin-top: 12px; padding-top: 10px; border-top: 1px solid #f1f5f9; }
+    .card-stars { font-size: 13px; color: #f59e0b; font-weight: 700; }
+    .card-week-stars { font-size: 12px; color: #10b981; font-weight: 600; }
+
+    /* ── Topic tags ── */
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .topic-tag { display: inline-block; padding: 2px 8px; border-radius: 5px;
+                  font-size: 11px; color: #fff; font-weight: 600; }
+
+    /* ── Footer ── */
+    footer { text-align: center; color: #94a3b8; font-size: 12px;
+              margin-top: 48px; padding-top: 20px; border-top: 1px solid #e2e8f0; }
+    footer a { color: #6366f1; text-decoration: none; font-weight: 500; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .hero-grid { grid-template-columns: 1fr; }
+      body { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Github每日精选</h1>
+      <div class="meta">
+        <span>2026-03-28</span>
+        <span class="sep">·</span>
+        <span>by <a href="https://github.com/lq-tammy/github_daily" target="_blank">Yanyang</a></span>
+      </div>
+    </header>
+    
+    <section class="hero-section">
+      <div class="hero-card">
+        <div class="hero-eyebrow">今日之星 · 开发者聚焦</div>
+        <div class="hero-name-row">
+          <a class="hero-name" href="https://github.com/hacksider/Deep-Live-Cam" target="_blank">hacksider/Deep-Live-Cam</a>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="hero-meta">
+          <span class="hero-stars">⭐ 83,633</span>
+          <span class="hero-today">今日 +1,616 stars today</span>
+          <span class="hero-tags"><span class="topic-tag" style="background:#4b5563">开发工具</span></span>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-item">
+            <div class="hero-item-label">👤 开发者背景</div>
+            <div class="hero-item-body">这是一位多产的开发者，拥有160个公开项目和2700多名粉丝。他性格低调，更喜欢通过邮件深入交流，而不是随意的网络聊天。他在AI技术领域有深厚的专业积累。</div>
+          </div>
+          <div class="hero-item">
+            <div class="hero-item-label">✨ 项目功能与特色</div>
+            <div class="hero-item-body">项目用一张静止照片就能实时变换成视频中的另一个人，支持摄像头实时换脸。通过深度学习技术，能快速生成逼真的换脸视频，操作简单到一键生成，无需复杂的技术背景。</div>
+          </div>
+          <div class="hero-item">
+            <div class="hero-item-label">🎯 适合场景</div>
+            <div class="hero-item-body">适合内容创作者制作创意视频、演员进行虚拟演绎、视频制作团队节省成本。也能用于娱乐社交、创意表达。但需提醒：换脸技术有被滥用风险，使用时应遵守法律和伦理底线。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <h2>今日全榜 Top 8</h2>
+      <p class="section-digest">今日精选聚焦 AI、开发工具 方向，5 个项目与 AI 生态直接相关。人气最高的 Deep-Live-Cam（开发工具）势头最旺，值得重点关注。语言层面以 Python 与 TypeScript 为主；TypeScript、LLM 等细分方向亦有亮眼作品入榜，整体热度持续走高。</p>
+      <table>
+        <thead><tr><th>#</th><th>项目</th><th>语言</th><th>⭐ 总计</th><th>今日 ⭐</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td><a href="https://github.com/hacksider/Deep-Live-Cam" target="_blank">hacksider/Deep-Live-Cam</a>
+              <div class="desc">仅用一张照片实现实时换脸和一键视频深度伪造</div></td>
+          <td><span class="badge" style="background:#3572A5">Python</span></td>
+          <td class="stars">83,633</td>
+          <td class="stars today">1,616 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td><a href="https://github.com/obra/superpowers" target="_blank">obra/superpowers</a>
+              <div class="desc">一套有效的AI智能体技能框架和软件开发方法</div></td>
+          <td><span class="badge" style="background:#89e051">Shell</span></td>
+          <td class="stars">119,534</td>
+          <td class="stars today">2,752 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td><a href="https://github.com/SakanaAI/AI-Scientist-v2" target="_blank">SakanaAI/AI-Scientist-v2</a>
+              <div class="desc">AI科学家v2：通过智能体树搜索实现研讨会级自动科研发现</div></td>
+          <td><span class="badge" style="background:#3572A5">Python</span></td>
+          <td class="stars">3,090</td>
+          <td class="stars today">143 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td><a href="https://github.com/virattt/dexter" target="_blank">virattt/dexter</a>
+              <div class="desc">一个专业进行金融研究的自主AI智能体</div></td>
+          <td><span class="badge" style="background:#2b7489">TypeScript</span></td>
+          <td class="stars">19,890</td>
+          <td class="stars today">672 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td><a href="https://github.com/twentyhq/twenty" target="_blank">twentyhq/twenty</a>
+              <div class="desc">打造由社区驱动的开源Salesforce替代方案</div></td>
+          <td><span class="badge" style="background:#2b7489">TypeScript</span></td>
+          <td class="stars">42,163</td>
+          <td class="stars today">668 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">6</td>
+          <td><a href="https://github.com/onyx-dot-app/onyx" target="_blank">onyx-dot-app/onyx</a>
+              <div class="desc">开源AI平台：支持所有LLM的高级AI聊天工具</div></td>
+          <td><span class="badge" style="background:#3572A5">Python</span></td>
+          <td class="stars">19,421</td>
+          <td class="stars today">547 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">7</td>
+          <td><a href="https://github.com/datalab-to/chandra" target="_blank">datalab-to/chandra</a>
+              <div class="desc">能处理复杂表格、表单、手写体的OCR模型，保留完整布局</div></td>
+          <td><span class="badge" style="background:#3572A5">Python</span></td>
+          <td class="stars">7,248</td>
+          <td class="stars today">912 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">8</td>
+          <td><a href="https://github.com/agentscope-ai/agentscope" target="_blank">agentscope-ai/agentscope</a>
+              <div class="desc">构建可见、可理解、可信的AI智能体</div></td>
+          <td><span class="badge" style="background:#3572A5">Python</span></td>
+          <td class="stars">21,313</td>
+          <td class="stars today">904 stars today</td>
+        </tr></tbody>
+      </table>
+    </section>
+    <section>
+      <h2 class="weekly">本周新增 Star Top 10</h2>
+      <p class="section-digest">本周精选聚焦 AI、LLM 方向，7 个项目与 AI 生态直接相关。人气最高的 last30days-skill（AI／开发工具）势头最旺，值得重点关注。语言层面以 Python 与 TypeScript 为主；开发工具、Python 等细分方向亦有亮眼作品入榜，整体热度持续走高。</p>
+      <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">1</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/mvanhorn/last30days-skill" target="_blank">mvanhorn/last30days-skill</a>
+          </div>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="card-desc">AI智能体扫描Reddit、X、YouTube等平台综合生成研究总结</div>
+        <div class="tags"><span class="topic-tag" style="background:#2563eb">AI</span><span class="topic-tag" style="background:#4b5563">开发工具</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 13,323</span>
+          <span class="card-week-stars">+7,349 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">2</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/FujiwaraChoki/MoneyPrinterV2" target="_blank">FujiwaraChoki/MoneyPrinterV2</a>
+          </div>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="card-desc">自动化网络赚钱流程</div>
+        <div class="tags"><span class="topic-tag" style="background:#4b5563">Python</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 26,840</span>
+          <span class="card-week-stars">+10,158 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">3</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank">Crosstalk-Solutions/project-nomad</a>
+          </div>
+          <span class="badge" style="background:#2b7489">TypeScript</span>
+        </div>
+        <div class="card-desc">N.O.M.A.D项目：离线生存计���机，集成工具、知识和AI</div>
+        <div class="tags"><span class="topic-tag" style="background:#2563eb">AI</span><span class="topic-tag" style="background:#0f766e">机器人</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 18,573</span>
+          <span class="card-week-stars">+14,531 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">4</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/bytedance/deer-flow" target="_blank">bytedance/deer-flow</a>
+          </div>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="card-desc">开源长任务超级智能体，可研究、编码、创意创作</div>
+        <div class="tags"><span class="topic-tag" style="background:#4b5563">Python</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 50,672</span>
+          <span class="card-week-stars">+17,843 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">5</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/TauricResearch/TradingAgents" target="_blank">TauricResearch/TradingAgents</a>
+          </div>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="card-desc">TradingAgents：多智能体LLM金融交易框架</div>
+        <div class="tags"><span class="topic-tag" style="background:#7c3aed">AI Agent</span><span class="topic-tag" style="background:#6d28d9">LLM</span><span class="topic-tag" style="background:#a16207">金融</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 43,068</span>
+          <span class="card-week-stars">+9,267 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">6</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/supermemoryai/supermemory" target="_blank">supermemoryai/supermemory</a>
+          </div>
+          <span class="badge" style="background:#2b7489">TypeScript</span>
+        </div>
+        <div class="card-desc">超快超强记忆引擎，AI时代的记忆API</div>
+        <div class="tags"><span class="topic-tag" style="background:#2563eb">AI</span><span class="topic-tag" style="background:#0369a1">后端</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 19,993</span>
+          <span class="card-week-stars">+2,749 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">7</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/affaan-m/everything-claude-code" target="_blank">affaan-m/everything-claude-code</a>
+          </div>
+          <span class="badge" style="background:#f1e05a">JavaScript</span>
+        </div>
+        <div class="card-desc">智能体性能优化系统，支持Claude Code等多种编程AI</div>
+        <div class="tags"><span class="topic-tag" style="background:#6d28d9">LLM</span><span class="topic-tag" style="background:#2563eb">AI</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 113,467</span>
+          <span class="card-week-stars">+22,361 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">8</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank">harry0703/MoneyPrinterTurbo</a>
+          </div>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="card-desc">用AI大模型一键生成高清短视频</div>
+        <div class="tags"><span class="topic-tag" style="background:#2563eb">AI</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 53,679</span>
+          <span class="card-week-stars">+3,236 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">9</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/hacksider/Deep-Live-Cam" target="_blank">hacksider/Deep-Live-Cam</a>
+          </div>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="card-desc">仅用一张照片实现实时换脸和一键视频深度伪造</div>
+        <div class="tags"><span class="topic-tag" style="background:#4b5563">开发工具</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 83,634</span>
+          <span class="card-week-stars">+3,509 stars this week</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <span class="card-rank">10</span>
+          <div style="flex:1;min-width:0">
+            <a class="card-name" href="https://github.com/hsliuping/TradingAgents-CN" target="_blank">hsliuping/TradingAgents-CN</a>
+          </div>
+          <span class="badge" style="background:#3572A5">Python</span>
+        </div>
+        <div class="card-desc">基于多智能体LLM的中文金融交易框架增强版</div>
+        <div class="tags"><span class="topic-tag" style="background:#7c3aed">AI Agent</span><span class="topic-tag" style="background:#6d28d9">LLM</span><span class="topic-tag" style="background:#a16207">金融</span></div>
+        <div class="card-footer">
+          <span class="card-stars">⭐ 21,889</span>
+          <span class="card-week-stars">+2,968 stars this week</span>
+        </div>
+      </div>
+      </div>
+    </section>
+    <section>
+      <h2>Python Top 5</h2>
+      <table>
+        <thead><tr><th>#</th><th>项目</th><th>⭐ 总计</th><th>今日 ⭐</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td><a href="https://github.com/hacksider/Deep-Live-Cam" target="_blank">hacksider/Deep-Live-Cam</a>
+              <div class="desc">仅用一张照片实现实时换脸和一键视频深度伪造</div></td>
+          
+          <td class="stars">83,634</td>
+          <td class="stars today">1,616 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td><a href="https://github.com/SakanaAI/AI-Scientist-v2" target="_blank">SakanaAI/AI-Scientist-v2</a>
+              <div class="desc">AI科学家v2：通过智能体树搜索实现研讨会级自动科研发现</div></td>
+          
+          <td class="stars">3,090</td>
+          <td class="stars today">143 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td><a href="https://github.com/onyx-dot-app/onyx" target="_blank">onyx-dot-app/onyx</a>
+              <div class="desc">开源AI平台：支持所有LLM的高级AI聊天工具</div></td>
+          
+          <td class="stars">19,421</td>
+          <td class="stars today">547 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td><a href="https://github.com/datalab-to/chandra" target="_blank">datalab-to/chandra</a>
+              <div class="desc">能处理复杂表格、表单、手写体的OCR模型，保留完整布局</div></td>
+          
+          <td class="stars">7,248</td>
+          <td class="stars today">912 stars today</td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td><a href="https://github.com/agentscope-ai/agentscope" target="_blank">agentscope-ai/agentscope</a>
+              <div class="desc">构建可见、可理解、可信的AI智能体</div></td>
+          
+          <td class="stars">21,314</td>
+          <td class="stars today">904 stars today</td>
+        </tr></tbody>
+      </table>
+    </section>
+    <footer>
+      数据来源：<a href="https://github.com/trending" target="_blank">GitHub Trending</a>
+      &nbsp;·&nbsp; 生成时间：2026-03-28
+    </footer>
+  </div>
+</body>
+</html>
